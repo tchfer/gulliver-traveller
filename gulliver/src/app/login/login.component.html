@@ -1,0 +1,46 @@
+<div class="login-wrapper">
+  <div class="login">
+    <div class="login-header">
+      <h1>Bem vindo, traveller!</h1>
+    </div>
+    <div class="login-body">
+      <div class="form">
+        <form [formGroup]="loginForm">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              #userNameInput
+              matInput
+              placeholder="Email"
+              type="email"
+              placeholder="Insira seu melhor email"
+              formControlName="email"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              placeholder="Senha"
+              [type]="hide ? 'password' : 'text'"
+              formControlName="password"
+              required
+            />
+            <mat-icon matSuffix (click)="hide = !hide">{{
+              hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </mat-form-field>
+          <button mat-flat-button [disabled]="loginForm.invalid">Entrar</button>
+          <h5>Não tem uma conta ainda? <a routerLink="/signup">Cadastre-se</a></h5>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="background-image">
+    <img
+      src="./../../assets/images/undraw_stranded_traveler_pdbw.svg"
+      alt="A man siting on a suitcase"
+    />
+  </div>
+</div>
